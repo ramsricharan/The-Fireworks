@@ -1,5 +1,5 @@
 # The-Fireworks
-** My First trail of the p5.js framework. Built a basic physics engine to give particles effects.**
+**My First trail of the p5.js framework. Built a basic physics engine to give particles effects.**
 
 
 ## Project Setup
@@ -10,6 +10,11 @@
  Platform: Web
  ```
  
+ ## About
+ - Built a simple physics engine which is responsible to take care of the velocity and acceleration of each particle under the gravity.
+ - All the particles are created at a random point under the horizon with random velocity and direction. Once they get launched, gravity alters their flight.
+ - On reaching the max height, the firework explodes creating 100 particles that shoot in random directions.
+ - Used p5.Sound library to play the cracking sound during the firework explosion.
  
  ## Demo
  
