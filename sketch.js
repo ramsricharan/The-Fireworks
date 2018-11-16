@@ -11,7 +11,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0, 30);
-  
+
   // Create mute button 
   muteButton = createButton('Sound : OFF');
   muteButton.position(5, 5);
@@ -42,15 +42,14 @@ function draw() {
 
 
 function muteButtonPressed() {
-  if(myVolume === 0)
-  {
+  if (myVolume === 0) {
     myVolume = 1;
-   	muteButton.html('Sound : OFF'); 
+    muteButton.html('Sound : OFF');
   } else {
     myVolume = 0;
-    muteButton.html('Sound : ON'); 
+    muteButton.html('Sound : ON');
   }
-  
+
 }
 
 
@@ -65,9 +64,9 @@ function Firework() {
   let gravity = createVector(0, 0.2);
   this.x = random(width);
   this.y = height;
-  this.firework = new particle(this.x, this.y, true, color(255, 150, 0));
+  this.firework = new particle(this.x, this.y, true, 255, 150, 0);
 
-  
+
   // Apply physics
   this.update = function() {
 
@@ -105,15 +104,18 @@ function Firework() {
   this.explode = function() {
 
     // Play sound
-    
+
     //var panning = map(this.firework.pos.x, 0, width, -1, 1);
     //explodeSound.pan(panning, 0);
     explodeSound.setVolume(myVolume);
     explodeSound.play();
 
-    var tempColor = color(random(255), random(255), random(255));
+    var tempR = random(255);
+    var tempG = random(255);
+    var tempB = random(255);
+
     for (var i = 0; i <= 100; i++) {
-      this.particles.push(new particle(this.firework.pos.x, this.firework.pos.y, false, tempColor));
+      this.particles.push(new particle(this.firework.pos.x, this.firework.pos.y, false, tempR, tempG, tempB));
     }
   }
 
@@ -122,11 +124,14 @@ function Firework() {
 
 
 
-function particle(x, y, firework, particleColor) {
+function particle(x, y, firework, R, G, B) {
 
   this.lifespan = 255;
   this.firework = firework;
-  this.particleColor = particleColor;
+  this.R = R;
+  this.G = G;
+  this.B = B;
+
   this.pos = createVector(x, y);
   this.acc = createVector(0, 0);
 
@@ -138,7 +143,7 @@ function particle(x, y, firework, particleColor) {
     this.vel.mult(random(15.20));
   }
 
-  
+
 
   this.applyForce = function(force) {
     this.acc.add(force);
@@ -157,13 +162,16 @@ function particle(x, y, firework, particleColor) {
 
 
   this.show = function() {
+
     if (!this.firework) {
       strokeWeight(3);
-      stroke(this.particleColor);
+      stroke(this.R, this.G, this.B, this.lifespan);
     } else {
       strokeWeight(2);
-      stroke(this.particleColor);
+      stroke(this.R, this.G, this.B);
     }
+
+
     point(this.pos.x, this.pos.y);
   }
 
