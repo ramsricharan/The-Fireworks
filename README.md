@@ -1,5 +1,5 @@
 # The-Fireworks
-**My First trail of the p5.js framework. Built a basic physics engine to give particles effects.**
+**My First trail with the p5.js framework. Created a fireworks effect using p5 2D shapes and p5.Sound library .**
 
 
 ## Project Setup
