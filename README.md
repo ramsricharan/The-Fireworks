@@ -1,4 +1,4 @@
-# The-Fireworks
+# The Fireworks
 **My First trail with the p5.js framework. Created a fireworks effect using p5 2D shapes and p5.Sound library .**
 
 
