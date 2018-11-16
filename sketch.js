@@ -10,7 +10,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0, 30);
+  background(30);
 
   // Create mute button 
   muteButton = createButton('Sound : OFF');
